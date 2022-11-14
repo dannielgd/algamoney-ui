@@ -8,6 +8,7 @@ import { CalendarModule } from 'primeng/calendar';
 import {ButtonModule} from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import {TooltipModule} from 'primeng/tooltip';
+import {InputMaskModule} from 'primeng/inputmask';
 
 import { AppComponent } from './app.component';
 import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
@@ -40,7 +41,8 @@ import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.compo
     TooltipModule,
     SelectButtonModule,
     DropdownModule,
-    InputNumberModule
+    InputNumberModule,
+    InputMaskModule
   ],
   providers: [],
   bootstrap: [AppComponent]
