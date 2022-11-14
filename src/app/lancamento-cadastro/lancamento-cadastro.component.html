@@ -21,19 +21,30 @@
       </div>
       <div class="col-12 md:col-9 p-fluid">
         <label>Descrição</label>
-        <input pInputText type="text">
+        <input pInputText type="text" name="descricao"
+          ngModel #descricao="ngModel" required minlength="5">
+
+          <div *ngIf="descricao.hasError('required') && descricao.dirty"
+          class="p-message p-message-error">
+            Informe uma Descrição
+          </div>
+          <div *ngIf="descricao.hasError('minlength') && descricao.dirty"
+          class="p-message p-message-error">
+            Mínimo de {{ descricao.errors?.minlength.requiredLength | json }} caracteres. Você digitou apenas {{ descricao.errors?.minlength.actualLength | json }}
+          </div>
       </div>
       <div class="col-12 md:col-3 p-fluid">
         <label>Valor</label>
-        <p-inputNumber mode="currency" currency="BRL" placeholder="0,00"></p-inputNumber>
+        <p-inputNumber mode="currency" name="valor" currency="BRL" placeholder="0,00"
+          ngModel></p-inputNumber>
       </div>
       <div class="col-12 md:col-6 p-fluid">
-        <label>Categoria {{categoria.value}}</label>
+        <label>Categoria</label>
         <p-dropdown [options]="categorias"
           placeholder="Selecione" #categoria></p-dropdown>
       </div>
       <div class="col-12 md:col-6 p-fluid">
-        <label>Pessoa {{pessoa.value}}</label>
+        <label>Pessoa</label>
         <p-dropdown [options]="pessoas"
           placeholder="Selecione" #pessoa
           [filter]="true"></p-dropdown>

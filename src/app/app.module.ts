@@ -9,6 +9,7 @@ import {ButtonModule} from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import {TooltipModule} from 'primeng/tooltip';
 import {InputMaskModule} from 'primeng/inputmask';
+import {MessagesModule} from 'primeng/messages'
 
 import { AppComponent } from './app.component';
 import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
@@ -19,6 +20,7 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -33,6 +35,7 @@ import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.compo
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     InputTextModule,
     InputTextareaModule,
     CalendarModule,
@@ -42,7 +45,8 @@ import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.compo
     SelectButtonModule,
     DropdownModule,
     InputNumberModule,
-    InputMaskModule
+    InputMaskModule,
+    MessagesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
