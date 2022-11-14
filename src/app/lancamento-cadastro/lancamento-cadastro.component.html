@@ -28,12 +28,15 @@
         <input pInputText type="text" placeholder="0,00">
       </div>
       <div class="col-12 md:col-6 p-fluid">
-        <label>Categoria</label>
-        <input pInputText type="text">
+        <label>Categoria {{categoria.value}}</label>
+        <p-dropdown [options]="categorias"
+          placeholder="Selecione" #categoria></p-dropdown>
       </div>
       <div class="col-12 md:col-6 p-fluid">
-        <label>Pessoa</label>
-        <input pInputText type="text">
+        <label>Pessoa {{pessoa.value}}</label>
+        <p-dropdown [options]="pessoas"
+          placeholder="Selecione" #pessoa
+          [filter]="true"></p-dropdown>
       </div>
       <div class="col-12 p-fluid">
         <label>Observação</label>
