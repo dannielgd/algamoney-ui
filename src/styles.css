@@ -44,3 +44,7 @@ a {
 .col-acoes > a {
   margin-right: 5px;
 }
+
+form .p-button {
+  margin-right: .25em;
+}
