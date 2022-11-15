@@ -1,3 +1,4 @@
+import { SharedModule } from './../shared/shared.module';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { DropdownModule } from 'primeng/dropdown';
 import { SelectButtonModule } from 'primeng/selectbutton';
@@ -34,7 +35,9 @@ import { CommonModule } from '@angular/common';
     TooltipModule,
     SelectButtonModule,
     DropdownModule,
-    InputNumberModule
+    InputNumberModule,
+
+    SharedModule
   ],
   exports: [
     LancamentoCadastroComponent,

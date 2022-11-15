@@ -1,29 +1,10 @@
+import { CoreModule } from './core/core.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {InputTextModule} from 'primeng/inputtext';
-import {InputTextareaModule} from 'primeng/inputtextarea';
-import { CalendarModule } from 'primeng/calendar';
-import {ButtonModule} from 'primeng/button';
-import { TableModule } from 'primeng/table';
-import {TooltipModule} from 'primeng/tooltip';
-import {InputMaskModule} from 'primeng/inputmask';
-import {MessagesModule} from 'primeng/messages'
-
 import { AppComponent } from './app.component';
 
-import { NavbarComponent } from './navbar/navbar.component';
-import { PessoasPesquisaComponent } from './pessoas/pessoas-pesquisa/pessoas-pesquisa.component';
-
-import { SelectButtonModule } from 'primeng/selectbutton';
-import { DropdownModule } from 'primeng/dropdown';
-import { InputNumberModule } from 'primeng/inputnumber';
-import { PessoaCadastroComponent } from './pessoas/pessoa-cadastro/pessoa-cadastro.component';
-import { FormsModule } from '@angular/forms';
-import { MessageComponent } from './message/message.component';
-
-import { PessoasGridComponent } from './pessoas/pessoas-grid/pessoas-grid.component';
 import { LancamentosModule } from './lancamentos/lancamentos.module';
 import { PessoasModule } from './pessoas/pessoas.module';
 
@@ -31,16 +12,15 @@ import { PessoasModule } from './pessoas/pessoas.module';
 @NgModule({
   declarations: [
     AppComponent,
-
-    NavbarComponent,
-    MessageComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
 
     LancamentosModule,
-    PessoasModule
+    PessoasModule,
+
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

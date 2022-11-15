@@ -1,3 +1,5 @@
+import { FormsModule } from '@angular/forms';
+import { SharedModule } from './../shared/shared.module';
 import { InputMaskModule } from 'primeng/inputmask';
 import { TooltipModule } from 'primeng/tooltip';
 import { TableModule } from 'primeng/table';
@@ -19,12 +21,14 @@ import { PessoasGridComponent } from './pessoas-grid/pessoas-grid.component';
   ],
   imports: [
     CommonModule,
-
+    FormsModule,
     InputTextModule,
     ButtonModule,
     TableModule,
     TooltipModule,
-    InputMaskModule
+    InputMaskModule,
+
+    SharedModule
   ],
   exports: [
     PessoaCadastroComponent,

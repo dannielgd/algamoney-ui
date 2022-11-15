@@ -1,5 +1,5 @@
 <div class="container">
-  <form>
+  <form #lancamentoForm="ngForm">
     <div class="grid">
       <div class="col-12">
         <h1>Novo Lançamento</h1>
@@ -13,7 +13,10 @@
         <label>Vencimento</label>
         <p-calendar dateFormat="dd/mm/yy"
         [inline]="false" [readonlyInput]="false"
-        [showIcon]="false"></p-calendar>
+        [showIcon]="false"
+        ngModel #vencimento="ngModel" [required]="true"></p-calendar>
+
+        <app-message [control]="vencimento" error="required" text="Informe uma data de vencimento"></app-message>
       </div>
       <div class="col-6 md:col-3 p-fluid">
         <label>{{ tipo.value === 'RECEITA' ? 'Recebimento' : 'Pagamento'}}</label>
@@ -24,12 +27,12 @@
         <input pInputText type="text" name="descricao"
           ngModel #descricao="ngModel" required minlength="5">
 
-          <!--<app-message [control] = "descricao" error="required"
+          <app-message [control] = "descricao" error="required"
             text="Informe uma Descrição"></app-message>
 
           <app-message [control] = "descricao" error="minlength"
             text="Mínimo de {{ descricao.errors?.minlength?.requiredLength }} caracteres. Você digitou apenas {{ descricao.errors?.minlength?.actualLength }}"></app-message>
-          -->
+
       </div>
       <div class="col-12 md:col-3 p-fluid">
         <label>Valor</label>
@@ -52,7 +55,7 @@
         <textarea pInputTextarea rows="3"></textarea>
       </div>
       <div class="col-12">
-        <button pButton type="submit" label="Salvar"></button>
+        <button pButton type="submit" label="Salvar" [disabled]="lancamentoForm.invalid"></button>
         <button pButton type="button" label="Novo" class="p-button-info"></button>
         <a href="javascript:;">Voltar para a pesquisa</a>
       </div>
