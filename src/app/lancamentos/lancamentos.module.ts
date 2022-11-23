@@ -9,7 +9,6 @@ import { CalendarModule } from 'primeng/calendar';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
-import { LancamentosGridComponent } from './lancamentos-grid/lancamentos-grid.component';
 import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
 import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-cadastro.component';
 import { NgModule } from '@angular/core';
@@ -20,8 +19,7 @@ import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [
     LancamentoCadastroComponent,
-    LancamentosPesquisaComponent,
-    LancamentosGridComponent
+    LancamentosPesquisaComponent
   ],
   imports: [
     CommonModule,
