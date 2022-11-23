@@ -19,7 +19,7 @@ export class LancamentosPesquisaComponent implements OnInit {
   }
   pesquisar() {
     this.lancamentoService.pesquisar(this.filtro)
-    .then(lancamentos => this.lancamentos = lancamentos);
+    .then(resultado => this.lancamentos = resultado.lancamentos);
     console.log(this.lancamentos);
 
   }
