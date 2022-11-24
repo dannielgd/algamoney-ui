@@ -9,14 +9,12 @@ import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.co
 import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PessoasGridComponent } from './pessoas-grid/pessoas-grid.component';
 
 
 
 @NgModule({
   declarations: [
     PessoaCadastroComponent,
-    PessoasGridComponent,
     PessoasPesquisaComponent
   ],
   imports: [
