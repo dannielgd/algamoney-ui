@@ -17,6 +17,7 @@ export class ErrorHandlerService {
     } else if (errorResponse instanceof HttpErrorResponse
       && errorResponse.status >= 400 && errorResponse.status <= 499) {
     msg = 'Ocorreu um erro ao processar a sua solicitação';
+        console.log(errorResponse);
 
     try {
       msg = errorResponse.error[0].mensagemUsuario;
@@ -26,8 +27,7 @@ export class ErrorHandlerService {
 
   } else{
       msg = 'Erro ao processar serviço remoto. Tente novamente.';
-      console.error('Ocorreu um erro', errorResponse);
-      console.error(typeof errorResponse);
+
 
     }
 
