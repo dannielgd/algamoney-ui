@@ -1,8 +1,9 @@
+import { FormControl, NgForm } from '@angular/forms';
+import { Lancamento } from './../../core/model';
 import { PessoaService } from './../../pessoas/pessoa.service';
 import { ErrorHandlerService } from './../../core/error-handler.service';
 import { CategoriaService } from './../../categorias/categoria.service';
 import { Component, OnInit } from '@angular/core';
-import { TRISTATECHECKBOX_VALUE_ACCESSOR } from 'primeng/tristatecheckbox';
 
 @Component({
   selector: 'app-lancamento-cadastro',
@@ -16,16 +17,10 @@ export class LancamentoCadastroComponent implements OnInit {
     {label: 'Despesa', value: 'DESPESA'}
   ];
 
-  categorias = [
-    { label: 'Alimentação', value: 1 },
-    { label: 'Transporte', value: 2 },
-  ];
+  categorias = [];
+  pessoas = [];
+  lancamento = new Lancamento();
 
-  pessoas = [
-    { label: 'João da Silva', value: 4 },
-    { label: 'Sebastião Souza', value: 9 },
-    { label: 'Maria Abadia', value: 3 },
-  ];
   constructor(
     private categoriaService: CategoriaService,
     private pessoasService: PessoaService,
@@ -43,6 +38,11 @@ export class LancamentoCadastroComponent implements OnInit {
       this.categorias = categorias.map((c: any) => ({ label: c.nome, value: c.codigo }));
     })
     .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  salvar(form: NgForm) {
+    console.log(this.lancamento);
+
   }
 
   carregarPessoas() {
