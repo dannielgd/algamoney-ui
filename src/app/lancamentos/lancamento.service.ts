@@ -72,7 +72,6 @@ export class LancamentoService {
 
   adicionar(lancamento: Lancamento): Promise<any> {
 
-
     const headers = new HttpHeaders()
     .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==')
     .append('Content-Type', 'application/json');
@@ -86,9 +85,15 @@ export class LancamentoService {
     .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==')
     .append('Content-Type', 'application/json');
 
-    return this.http.put<void>(`${this.lancamentosUrl}/${lancamento.codigo}`, { lancamento }, { headers })
-    .toPromise();
+    return this.http.put<void>(`${this.lancamentosUrl}/${lancamento.codigo}`, lancamento, { headers })
+    .toPromise()
+    .then((response: any) => {
+      return this.converterStringsParaDatas(response);
+
+      // return response;
+    });
   }
+
   buscarPorCodigo(codigo: number): Promise<any> {
     const headers = new HttpHeaders()
     .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==')
@@ -97,22 +102,28 @@ export class LancamentoService {
     return this.http.get(`${this.lancamentosUrl}/${codigo}`, { headers })
     .toPromise()
     .then((response: any) => {
-      this.converterStringsParaDatas([response]);
+
+      return this.converterStringsParaDatas(response);
 
       return response;
     });
   }
 
-  private converterStringsParaDatas(lancamentos: Lancamento[]) {
-    for (const lancamento of lancamentos) {
-      let offset = new Date().getTimezoneOffset() * 60000;
+  converterStringsParaDatas(lancamento: any): Lancamento {
 
-      lancamento.dataVencimento = new Date(new Date(lancamento.dataVencimento!).getTime() + offset);
+      // let offset = new Date().getTimezoneOffset() * 60000;
 
-      if (lancamento.dataPagamento) {
-        lancamento.dataPagamento = new Date(new Date(lancamento.dataPagamento).getTime() + offset);
-      }
+      lancamento.dataVencimento = new Date(lancamento.dataVencimento.slice(6,10) + '-' + lancamento.dataVencimento.slice(3,5) + '-' + lancamento.dataVencimento.slice(0,2));
+      lancamento.dataVencimento.setDate(lancamento.dataVencimento.getDate()+1)
+
+      if (lancamento.dataPagamento != null) {
+        lancamento.dataPagamento = new Date(lancamento.dataPagamento.slice(6,10) + '-' + lancamento.dataPagamento.slice(3,5) + '-' + lancamento.dataPagamento.slice(0,2));
+
+      lancamento.dataPagamento.setDate(lancamento.dataPagamento.getDate()+1);
     }
+
+
+      return lancamento;
   }
 
 }
