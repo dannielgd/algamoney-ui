@@ -1,3 +1,4 @@
+import { LancamentosRoutingModule } from './lancamentos-routing.module';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from './../shared/shared.module';
 import { InputNumberModule } from 'primeng/inputnumber';
@@ -26,8 +27,6 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     FormsModule,
 
-    RouterModule,
-
     InputTextModule,
     InputTextareaModule,
     CalendarModule,
@@ -38,7 +37,8 @@ import { CommonModule } from '@angular/common';
     DropdownModule,
     InputNumberModule,
 
-    SharedModule
+    SharedModule,
+    LancamentosRoutingModule
   ],
   exports: [
   ]
