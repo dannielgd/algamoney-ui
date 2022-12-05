@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { LancamentoService } from './../lancamento.service';
 import { FormControl, NgForm, NgModel } from '@angular/forms';
 import { Lancamento } from './../../core/model';
@@ -32,10 +33,13 @@ export class LancamentoCadastroComponent implements OnInit {
     private confirmationService: ConfirmationService,
     private errorHandler: ErrorHandlerService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private title: Title
   ) { }
 
   ngOnInit(): void {
+
+    this.title.setTitle('Novo Lançamento');
 
     const codigoLancamento = this.route.snapshot.params['codigo'];
 
@@ -44,6 +48,10 @@ export class LancamentoCadastroComponent implements OnInit {
     }
     this.carregarCategorias();
     this.carregarPessoas();
+  }
+
+  atualizarTituloEdicao() {
+    this.title.setTitle(`Edição de lançamento: ${this.lancamento.descricao}`);
   }
 
   get editando() {
@@ -56,6 +64,7 @@ export class LancamentoCadastroComponent implements OnInit {
     this.lancamentoService.buscarPorCodigo(codigo)
     .then(lancamento => {
       this.lancamento = lancamento;
+      this.atualizarTituloEdicao();
     })
     .catch(erro => this.errorHandler.handle(erro));
   }
@@ -97,6 +106,7 @@ export class LancamentoCadastroComponent implements OnInit {
       .then(lancamento => {
         this.lancamento = lancamento;
         this.messageService.add({ severity: 'success', detail: 'Lançamento alterado com sucesso!' });
+        this.atualizarTituloEdicao();
       })
       .catch(erro => this.errorHandler.handle(erro));
   }

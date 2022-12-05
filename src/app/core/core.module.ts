@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
@@ -52,6 +53,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     ErrorHandlerService,
     MessageService,
     ConfirmationService,
+    Title,
 
     LancamentoService,
     PessoaService,
