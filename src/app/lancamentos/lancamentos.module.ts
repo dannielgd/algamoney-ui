@@ -41,8 +41,6 @@ import { CommonModule } from '@angular/common';
     SharedModule
   ],
   exports: [
-    LancamentoCadastroComponent,
-    LancamentosPesquisaComponent
   ]
 })
 export class LancamentosModule { }

@@ -29,8 +29,6 @@ import { CommonModule } from '@angular/common';
     SharedModule
   ],
   exports: [
-    PessoaCadastroComponent,
-    PessoasPesquisaComponent
   ]
 })
 export class PessoasModule { }
