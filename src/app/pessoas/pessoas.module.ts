@@ -1,3 +1,4 @@
+import { PessoasRoutingModule } from './pessoas-routing.module';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from './../shared/shared.module';
 import { InputMaskModule } from 'primeng/inputmask';
@@ -26,7 +27,8 @@ import { CommonModule } from '@angular/common';
     TooltipModule,
     InputMaskModule,
 
-    SharedModule
+    SharedModule,
+    PessoasRoutingModule
   ],
   exports: [
   ]

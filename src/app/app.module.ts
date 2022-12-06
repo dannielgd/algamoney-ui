@@ -13,7 +13,6 @@ import { AppComponent } from './app.component';
 
 import { LancamentosModule } from './lancamentos/lancamentos.module';
 import { PessoasModule } from './pessoas/pessoas.module';
-import { RouterModule, Routes } from '@angular/router';
 
 
 @NgModule({
