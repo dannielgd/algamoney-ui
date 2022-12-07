@@ -24,8 +24,6 @@ export class LancamentoService {
 
   pesquisar(filtro: LancamentoFiltro): Promise<any> {
     let params = new HttpParams();
-    const headers = new HttpHeaders()
-    .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
 
     params = params.set('page', filtro.pagina);
     params = params.set('size', filtro.itensPorPagina);
@@ -43,7 +41,7 @@ export class LancamentoService {
   }
 
   return this.http.get(`${this.lancamentosUrl}?resumo`,
-      { headers, params })
+      { params })
 
     .toPromise()
 
@@ -62,30 +60,21 @@ export class LancamentoService {
   }
 
   excluir(codigo: number): Promise<void> {
-    const headers = new HttpHeaders()
-    .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
 
-    return this.http.delete<void>(`${this.lancamentosUrl}/${codigo}`, { headers })
+    return this.http.delete<void>(`${this.lancamentosUrl}/${codigo}`)
       .toPromise();
 
   }
 
   adicionar(lancamento: Lancamento): Promise<any> {
 
-    const headers = new HttpHeaders()
-    .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==')
-    .append('Content-Type', 'application/json');
-
-    return this.http.post<Lancamento>(this.lancamentosUrl, lancamento, { headers })
+    return this.http.post<Lancamento>(this.lancamentosUrl, lancamento)
     .toPromise();
   }
 
   atualizar(lancamento: Lancamento): Promise<any> {
-    const headers = new HttpHeaders()
-    .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==')
-    .append('Content-Type', 'application/json');
 
-    return this.http.put<void>(`${this.lancamentosUrl}/${lancamento.codigo}`, lancamento, { headers })
+    return this.http.put<void>(`${this.lancamentosUrl}/${lancamento.codigo}`, lancamento)
     .toPromise()
     .then((response: any) => {
       return this.converterStringsParaDatas(response);
@@ -95,11 +84,8 @@ export class LancamentoService {
   }
 
   buscarPorCodigo(codigo: number): Promise<any> {
-    const headers = new HttpHeaders()
-    .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==')
-    .append('Content-Type', 'application/json');
 
-    return this.http.get(`${this.lancamentosUrl}/${codigo}`, { headers })
+    return this.http.get(`${this.lancamentosUrl}/${codigo}`)
     .toPromise()
     .then((response: any) => {
 
