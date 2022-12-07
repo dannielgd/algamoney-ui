@@ -1,11 +1,8 @@
+import { SegurancaModule } from './seguranca/seguranca.module';
 import { AppRoutingModule } from './app-routing.module';
-import { PaginaNaoEncontradaComponent } from './core/pagina-nao-encontrada.component';
-import { PessoasPesquisaComponent } from './pessoas/pessoas-pesquisa/pessoas-pesquisa.component';
-import { LancamentoCadastroComponent } from './lancamentos/lancamento-cadastro/lancamento-cadastro.component';
-import { LancamentosPesquisaComponent } from './lancamentos/lancamentos-pesquisa/lancamentos-pesquisa.component';
 import { CoreModule } from './core/core.module';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { NgModule, LOCALE_ID, DEFAULT_CURRENCY_CODE } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -28,6 +25,7 @@ import { PessoasModule } from './pessoas/pessoas.module';
 
     CoreModule,
     HttpClientModule,
+    SegurancaModule,
     AppRoutingModule
   ],
   providers: [
