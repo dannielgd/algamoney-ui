@@ -1,4 +1,6 @@
 <div class="container" style="max-width: 400px; margin: auto">
+
+  {{ auth.jwtPayload | json }}
   <form #loginform="ngForm">
     <div class="grid">
       <div class="col-12">

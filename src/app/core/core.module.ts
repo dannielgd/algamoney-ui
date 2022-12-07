@@ -1,3 +1,4 @@
+import { AuthService } from './../seguranca/auth.service';
 import { Title } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -58,7 +59,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     LancamentoService,
     PessoaService,
 
-    TranslateService
+    TranslateService,
+    AuthService
   ]
 })
 export class CoreModule { }
