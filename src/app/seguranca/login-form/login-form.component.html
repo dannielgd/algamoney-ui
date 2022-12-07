@@ -1,6 +1,6 @@
 <div class="container" style="max-width: 400px; margin: auto">
 
-  {{ auth.jwtPayload | json }}
+
   <form #loginform="ngForm">
     <div class="grid">
       <div class="col-12">
@@ -21,7 +21,7 @@
 
       <div class="col-12">
         <button pButton type="submit" label="Login" [disabled]="loginform.invalid"
-          (click)="login(usuario.value, senha.value)"></button>
+          (click)="login(usuario.value, senha.value); senha.value= ''"></button>
       </div>
     </div>
   </form>
