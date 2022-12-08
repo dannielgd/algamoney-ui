@@ -1,3 +1,4 @@
+import { MoneyHttpInterceptor } from './money-http-interceptor';
 import { ButtonModule } from 'primeng/button';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -7,6 +8,7 @@ import {PasswordModule} from 'primeng/password';
 import { InputTextModule } from 'primeng/inputtext';
 import { SegurancaRoutingModule } from './seguranca-routing.module';
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 
@@ -37,7 +39,12 @@ export function tokenGetter(): string {
     })
   ],
   providers: [
-    JwtHelperService
+    JwtHelperService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MoneyHttpInterceptor,
+      multi: true
+    }
   ]
 })
 export class SegurancaModule { }
