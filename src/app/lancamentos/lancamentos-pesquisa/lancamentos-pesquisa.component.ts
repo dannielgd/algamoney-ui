@@ -1,3 +1,4 @@
+import { AuthService } from './../../seguranca/auth.service';
 import { ErrorHandlerService } from './../../core/error-handler.service';
 import { LancamentoService, LancamentoFiltro } from './../lancamento.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -19,6 +20,7 @@ export class LancamentosPesquisaComponent implements OnInit {
 
   constructor(
     private lancamentoService: LancamentoService,
+    private auth: AuthService,
     private messageService: MessageService,
     private confirmationService: ConfirmationService,
     private errorHandler: ErrorHandlerService,
@@ -28,6 +30,11 @@ export class LancamentosPesquisaComponent implements OnInit {
     this.title.setTitle('Pesquisa de Lançamentos');
     this.pesquisar();
   }
+
+  naoTemPermissao(permissao: string) {
+    return !this.auth.temPermissao(permissao);
+  }
+
   pesquisar(pagina = 0) {
     this.filtro.pagina = pagina;
     this.lancamentoService.pesquisar(this.filtro)
