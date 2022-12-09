@@ -14,7 +14,7 @@ import { PessoasModule } from './pessoas/pessoas.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
