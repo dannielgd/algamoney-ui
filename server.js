@@ -8,4 +8,4 @@ app.get('/*', function(req, res) {
   res.sendFile(__dirname + '/dist/index.html');
 });
 
-app.listen(4200);
+app.listen(process.env.PROD || 4200);
